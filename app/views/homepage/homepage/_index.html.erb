@@ -1,0 +1,56 @@
+
+
+
+<div class="pt-20 h-screen w-full flex flex-col md:flex-row items-center justify-center bg-gray-200">
+    <!-- Lnclass Main Message-->
+    <div class="w-auto md:w-1/2 content text-3xl md:ml-20 text-center md:text-left">
+        <h1 class="text-5xl text-blue-500 font-bold">Lnclass Education</h1>
+        <p class="flex mx-2 my-4">Le bon plan pour comprendre les léçons</p>
+        <br>
+    </div>
+
+        <!-- Lnclass Sign In form -->
+        <div class="w-auto md:w-1/2 container mx-auto flex flex-col items-center">
+
+            <div class="w-96 p-4 flex flex-col bg-white rounded-lg">
+                <p class="flex mx-auto my-2 font-semibold">
+                    Connectez-vous à votre compte
+                </p>
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                    <!-- Error-->
+                    <%#= form_error_notification(resource: resource) %>
+                    <%= render "devise/shared/error_messages", resource: resource %>
+                    <div class="flex">
+                    <%= f.text_field :email, placeholder:"Entrez votre N° Matricule", class:"mb-5 py-3  w-full border-2 border-blue-400 focus:border-500" %>
+                    </div>
+                    <div class="flex">
+                        <%= f.password_field :password , placeholder:"Entrez votre N° tel", class:"my-3 py-3 w-full  border-2 border-blue-400 focus:border-500" %>
+                    </div>
+
+                        <% if devise_mapping.rememberable? %>
+                        <%= f.check_box :remember_me, class:"checkbox " %>
+                    <%= f.label :"Restez connecter à mon compte" , class:"text-black text-center my-2" %>
+                    <% end %>
+
+                        <p class="bg-blue-600 p-3 mt-4"> <%= f.submit "Se Connecter", class:"w-full font-semibold text-lg text-white " %></p>
+                <% end %>
+                <p class="my-4">
+                    <label for="sign_in_modal" class="text-blue-500">Des difficultés pour vous connectez ?</label>
+                </p>
+
+                <hr/>
+
+                <%= link_to "Créer son compte élève", "student-sign-up", 
+            class:"w-full bg-red-500 mt-8 mb-4 text-white p-3 font-semibold text-lg",
+            data:{turbo_frame:"sign-Up-Form"} %>
+            <hr>
+            <p class="w-full text-center text-sm my-4">
+                <span class="font-semibold text-center ">Acceder à espace Enseignant: </span>
+                <%= link_to 'Enseignant', "teacher-sign-up", class:"underline font-semibold " %>
+            </p>
+            </div>
+        </div>
+
+    </div>
+
+

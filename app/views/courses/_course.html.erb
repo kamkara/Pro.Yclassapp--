@@ -1,0 +1,19 @@
+<div id="<%= dom_id course %>" class="container mx-auto bg-white p-2">
+    <div class="my-2 font-semibold">
+        <%= course.title %>
+    </div>
+
+    <div class="border rounded-lg p-2">
+        <%= course.content %>
+    </div>
+
+
+    <div class="pt-2">
+      <% if action_name != "show" %>
+        <%= link_to "Afficher", course, class: "rounded-lg py-3 px-5 bg-blue-200 inline-block font-medium" %>
+        <%= link_to 'Editer', edit_course_path(course), class: "rounded-lg py-3 ml-2 px-5 bg-blue-200 inline-block font-medium" %>
+        <hr class="mt-6">
+      <% end %>
+    </div>
+</div>
+
