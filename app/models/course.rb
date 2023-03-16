@@ -1,5 +1,6 @@
 class Course < ApplicationRecord
   belongs_to :user
+  has_many :exercises, dependent: :destroy
   has_rich_text :content
 
   # message: "verifier que votre nom numéro est 10 chiffres"}

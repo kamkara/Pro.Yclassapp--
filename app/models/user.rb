@@ -4,14 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-   has_many :courses, dependent: :destroy
+  has_many :courses, dependent: :destroy
   has_many :exercises, dependent: :destroy
   has_many :levels
   has_many :materials
   has_many :questions
   has_many :articles
 
- 
   # Avant la validation de l'utilisateur, assigner first_name et last_name à partir de full_name
   before_validation :assign_names_from_full_name
 

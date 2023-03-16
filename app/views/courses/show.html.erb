@@ -39,7 +39,7 @@
                 <!-- Link Exercise Form-->
                 <div class="flex">
                     <%= link_to 'Nouvel Exercice', new_course_exercise_path(@course),
-                        data:{ turbo_frame: "add_exercise_form"}, class:"bg-gray-200 py-3 px-4 " %>
+                        data:{ turbo_frame: "add_exercise_form"}, class:"bg-blue-600 text-white font-bold py-3 px-4 " %>
                 </div>
             </div>
 
@@ -50,7 +50,7 @@
     <!-- Exercises Feed-->
     <div class="border bg-white m-2">
         <!-- Exercises New Form-->
-        <%#= turbo_frame_tag dom_id(Exercise.new) %>
+        <%= turbo_frame_tag dom_id(Exercise.new) %>
         <!-- Exercises feed-->
 
         <%= render "courses/shared/exercises", course:@course %>
