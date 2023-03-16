@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  
+  resources :exercises
+   resources :courses, only:[:show] do
+    resources :exercises, only:[:new, :create, :destroy, :edit, :update]
+    get "exercises", to:"exercises#index"
+  end
   resources :articles, except: [:new]
   resources :courses, except:[:index, :show, :new]
   resources :questions, except:[:new, :create, :destroy]
